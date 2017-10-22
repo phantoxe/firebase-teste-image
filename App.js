@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
-import * as firebase from "firebase";
+import  firebase from "firebase";
 
 // Initialize Firebase
 var config = {
@@ -12,7 +12,9 @@ var config = {
   messagingSenderId: "942133272363"
 };
 
-firebase.initializeApp(config);
+if (!firebase.apps.length) {
+  firebase.initializeApp(config);
+}
 
 // Get a reference to the storage service, which is used to create references in your storage bucket
 var storage = firebase.storage();
